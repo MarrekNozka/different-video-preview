@@ -2,24 +2,26 @@ body {
     margin: 0% 10%;
 }
 
-.video_preview {
+.video-preview {
     display: inline-block;
     position: relative;
     background: #ddd;
     overflow: hidden;
-    width: 160px;
-    height: 120px;
+    height: 270px;
+    width: 360px;
     border-radius: 3px;
     box-shadow: 0 0 6px #bbb;
 }
 
-.video_preview span {
+.video-preview span {
     display: inline-block;
     color: red;
-    padding: 2px 7px;
+    padding: 1px 3px;
     margin: 1em;
     font-size: 120%;
     color: white;
-    background-color: darkred;
-    opacity: 70%;
+    background-color: #333;
+    opacity: 77%;
+    box-shadow: 0 0 6px #bbb;
+    border-radius: 3px;
 }
