@@ -1,33 +1,24 @@
-var img;
-var frames;
-var imgsrc;
-var width;
-var _width;
-var _height;
-var imgalt;
-var nth;
-
 var links = document.getElementsByClassName('video-preview');
 for (let i = 0, len = links.length; i < len; i++) {
-    var element = links[i];
-    img = element.getElementsByTagName('IMG')[0];
-    imgsrc = img.src
-    imgalt = img.alt
-    frames = img.dataset.frames;
-    _width = img.naturalWidth;
-    _height = img.naturalHeight;
-    width = _width/frames;
-    element.style.width = width + 'px';
-    element.style.height = _height + 'px';
+    let element = links[i];
+    element.img = element.getElementsByTagName('IMG')[0];
+    element.imgsrc = element.img.src
+    element.imgalt = element.img.alt
+    element.frames = element.img.dataset.frames;
+    element._width = element.img.naturalWidth;
+    element._height = element.img.naturalHeight;
+    element.width = element._width/element.frames;
+    element.style.width = element.width + 'px';
+    element.style.height = element._height + 'px';
     
-    element.innerHTML = '<span>▷ '+imgalt+'</span>'
-    element.style.backgroundImage = 'url("'+imgsrc+'")'
+    element.innerHTML = '<span> ▷ '+element.imgalt+'</span>'
+    element.style.backgroundImage = 'url("'+element.imgsrc+'")'
     links[i].addEventListener('mousemove', mouseMove)
 }
 
 function mouseMove(event) {
-    var x = event.offsetX;
-    var step = parseInt(width/frames)
-    var nth = parseInt(x / step)
-    this.style.backgroundPosition = (-width * nth) + 'px';
+    let x = event.offsetX;
+    let step = parseInt(this.width/this.frames)
+    let nth = parseInt(x / step)
+    this.style.backgroundPosition = (- this.width * nth) + 'px';
 }
